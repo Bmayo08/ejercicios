@@ -64,10 +64,13 @@ luchador.pegar(curador);
 
 // Configuración
 function testStrictNotEqual(val) {
-    if (val !==17) { // Cambia esta línea
-      return "Not Equal";
-    }
-    return "Equal";
+    if (val !==10) { // Cambia esta línea
+      console.log(  "Not Equal");
+    }else
+    console.log( "Equal");
+    
   }
   
   testStrictNotEqual(10);
+  
+  
