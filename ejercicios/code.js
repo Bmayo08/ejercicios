@@ -129,59 +129,59 @@ console.log(golfScore(5, 6));
 //  y la decisión del jugador(Bet o Hold) deben estar separados por un solo espacio.
 
 
-let count = 0;
+ // let count = 0;
 
-function cc(card) {
+// function cc(card) {
 
-    switch (card) {
-        case 2:
-        case 3:
-        case 4:
-        case 5:
-        case 6:
-            count++;
-            break;
-        case 10:
-        case "J":
-        case "Q":
-        case "K":
-        case "A":
-            count--;
-            break;
-    }
-    if (count > 0) {
-        return count + "Bet"
-    } else {
-        return count + "Hold"
-    }
+//     switch (card) {
+//         case 2:
+//         case 3:
+//         case 4:
+//         case 5:
+//         case 6:
+//             count++;
+//             break;
+//         case 10:
+//         case "J":
+//         case "Q":
+//         case "K":
+//         case "A":
+//             count--;
+//             break;
+//     }
+//     if (count > 0) {
+//         return count + "Bet"
+//     } else {
+//         return count + "Hold"
+//     }
 
-}
+// }
 
-cc(2); cc(3); cc(7); cc('K'); cc('A');
+// cc(2); cc(3); cc(7); cc('K'); cc('A');
 
 
 
 // Configuración
 const recordCollection = {
     2548: {
-      albumTitle: 'Slippery When Wet',
-      artist: 'Bon Jovi',
-      tracks: ['Let It Rock', 'You Give Love a Bad Name']
+        albumTitle: 'Slippery When Wet',
+        artist: 'Bon Jovi',
+        tracks: ['Let It Rock', 'You Give Love a Bad Name']
     },
     2468: {
-      albumTitle: '1999',
-      artist: 'Prince',
-      tracks: ['1999', 'Little Red Corvette']
+        albumTitle: '1999',
+        artist: 'Prince',
+        tracks: ['1999', 'Little Red Corvette']
     },
     1245: {
-      artist: 'Robert Palmer',
-      tracks: []
+        artist: 'Robert Palmer',
+        tracks: []
     },
     5439: {
-      albumTitle: 'ABBA Gold'
+        albumTitle: 'ABBA Gold'
     }
-  };
-   
+};
+
 //   1. Después de updateRecords(recordCollection, 5439, "artist", "ABBA"), artist debe ser la cadena ABBA
 // Esperando:2. Después de updateRecords(recordCollection, 5439, "tracks", "Take a Chance on Me"), tracks debe tener la cadena Take a Chance on Me como último y único elemento.
 // Esperando:3. Después de updateRecords(recordCollection, 2548, "artist", ""), artist no debe establecerse
@@ -189,20 +189,47 @@ const recordCollection = {
 // Esperando:5. Después de updateRecords(recordCollection, 2468, "tracks", "Free"), tracks debe tener la cadena 1999 como primer elemento.
 // Esperando:6. Después de updateRecords(recordCollection, 2548, "tracks", ""), tracks no debe establecerse
 // Esperando:7. Después de updateRecords(recordCollection, 1245, "albumTitle", "Riptide"), albumTitle debe ser la cadena Riptide
-  // Cambia solo el código debajo de esta línea
-  function updateRecords(records, id, prop, value) {
+// Cambia solo el código debajo de esta línea
+function updateRecords(records, id, prop, value) {
     const album = records[id];
-   
+
     if (value === "") {
-      delete album[prop];
+        delete album[prop];
     } else if (prop !== "tracks") {
-      album[prop] = value;
+        album[prop] = value;
     } else {
-      album["tracks"] = album["tracks"] || [];
-      album["tracks"].push(value);
+        album["tracks"] = album["tracks"] || [];
+        album["tracks"].push(value);
     }
     // Return the full collection
     return records;
+}
+
+updateRecords(recordCollection, 5439, 'artist', 'ABBA');
+
+//ejercicio piramides
+
+const character = "!";
+const count = 10;
+const rows = [];
+let inverted = false;
+
+function padRow(rowNumber, rowCount) {
+  return " ".repeat(rowCount - rowNumber) + character.repeat(2 * rowNumber - 1) + " ".repeat(rowCount - rowNumber);
+}
+
+for (let i = 1; i <= count; i++) {
+  if (inverted) {
+    rows.unshift(padRow(i, count));
+  } else {
+    rows.push(padRow(i, count));
   }
-  
-  updateRecords(recordCollection, 5439, 'artist', 'ABBA');
+}
+
+let result = ""
+
+for (const row of rows) {
+  result = result + row + "\n";
+}
+
+console.log(result);
