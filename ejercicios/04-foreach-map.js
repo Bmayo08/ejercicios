@@ -2,6 +2,14 @@
 
 let numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 let i=0
+let result = ""
+
+for (const num of numeros) {
+  result = result + num + "\n";
+}
+
+console.log(result);
+
 
 while( i < numeros.length){
     console.log([i])
@@ -21,3 +29,5 @@ numeros.forEach((x, y) => {
 )
 let datos = numeros.map(x=> x<5)
 console.log(datos)
+
+
