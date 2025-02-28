@@ -34,4 +34,4 @@ function getAverage(scores) {
   
     return `Class average: ${average}. Your grade: ${grade}. You ${passed ? "passed" : "failed"} the course.`;
   }
-  console.log(studentMsg([92, 88, 12, 77, 57, 100, 67, 38, 97, 89], 37));
+  console.log(studentMsg([92, 88, 12, 77, 57, 100, 67, 38, 97, 89], 100));

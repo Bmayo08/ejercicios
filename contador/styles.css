@@ -1,0 +1,17 @@
+*{
+    box-sizing: border-box;
+}
+.cont{
+    justify-content: center;
+    margin: 15% 0;
+    text-align: center;
+   
+}
+
+button{
+    height: 40px;
+    width: 100%;
+    max-width: 100px;
+    
+    
+}
